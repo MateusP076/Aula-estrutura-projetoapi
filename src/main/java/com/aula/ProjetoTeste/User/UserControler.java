@@ -43,6 +43,8 @@ public class UserControler {
     }
     @PutMapping("/Atualizar")
     public ResponseEntity atualizar(@RequestBody UserModel userModel) {
+        var hahssenha= BCrypt.withDefaults().hashToString(12, userModel.getSenha().toCharArray());
+        userModel.setSenha(hahssenha);
         var criado= this.userRepository.save(userModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(criado);
     }
