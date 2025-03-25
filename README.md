@@ -1,5 +1,7 @@
 NOME:Mateus Pereira da Silva Fernandes.
 RGM:11232100310.
+Nome: Natália Mendes do Nascimento
+RGM:11232100618
           Informações do projeto:
 Esse projeto é divido em três partes contendo usuário, cursos e carros. 
 Caso haja erros na hora de iniciar o server recomendo apagar a pasta e cria-la novamente pois esse erro vem sendo recorrente.
