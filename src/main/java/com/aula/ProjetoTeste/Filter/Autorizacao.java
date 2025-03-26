@@ -4,21 +4,24 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.aula.ProjetoTeste.User.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.Base64;
-
-public class Autorização extends OncePerRequestFilter {
+@Component
+public class Autorizacao extends OncePerRequestFilter {
+    @Autowired
     UserRepository userRepository;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-            var autorizacao= request.getHeader("autorizacao");
+            var autorizacao= request.getHeader("Authorization");
+            filterChain.doFilter(request,response);
             System.out.println("autorizacao: ");
             System.out.println(autorizacao);
 
